@@ -19,6 +19,7 @@ import ImageLoading from  './src/main/ImageLoading'
 import DrawerLayoutLoading from './src/main/DrawerLayoutLoading'
 import ListViewLoading from './src/main/ListViewLoading'
 import ModalLoading from './src/main/ModalLoading'
+import PickerLoading from './src/main/PickerLoading'
 class demo extends Component {
     fetchData = ()=> {
         //禁用按钮
@@ -51,10 +52,13 @@ class demo extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <ModalLoading style={{flex:1}}/>
+                <PickerLoading/>
             </View>
         );
     }
+}
+var Modal = ()=>{
+    <ModalLoading style={{flex:1}}/>
 }
 var ListView = ()=>{
     <ListViewLoading style={styles.listView}/>
@@ -76,6 +80,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         height: 47,
+        backgroundColor:'grey'
     },
     listView: {
         flex: 1,
