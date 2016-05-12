@@ -23,6 +23,7 @@ import NavigatorLoading from './src/main/navigator/NavigatorLoading'
 import ProgressBarLoading from './src/main/ProgressLoading'
 import RefreshControlLoading from './src/main/RefreshControlLoading';
 import ScrollViewLoading from './src/main/ScrollViewLoading';
+import SliderLoading from './src/main/SliderLoading'
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -55,11 +56,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <ScrollViewDemo/>
+                <SliderDemo/>
             </View>
         );
     }
 }
+var SliderDemo = React.createClass({
+    render(){
+        return(
+            <SliderLoading/>
+        )
+    }
+});
 var ScrollViewDemo = React.createClass({
    render(){
        return(
