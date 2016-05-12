@@ -22,6 +22,7 @@ import PickerLoading from './src/main/PickerLoading'
 import NavigatorLoading from './src/main/navigator/NavigatorLoading'
 import ProgressBarLoading from './src/main/ProgressLoading'
 import RefreshControlLoading from './src/main/RefreshControlLoading';
+import ScrollViewLoading from './src/main/ScrollViewLoading';
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -54,11 +55,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <RefreshControlDemo/>
+                <ScrollViewDemo/>
             </View>
         );
     }
 }
+var ScrollViewDemo = React.createClass({
+   render(){
+       return(
+           <ScrollViewLoading/>
+       )
+   }
+});
 var RefreshControlDemo = React.createClass({
     render(){
         return(
