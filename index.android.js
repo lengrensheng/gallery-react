@@ -21,6 +21,7 @@ import ModalLoading from './src/main/ModalLoading'
 import PickerLoading from './src/main/PickerLoading'
 import NavigatorLoading from './src/main/navigator/NavigatorLoading'
 import ProgressBarLoading from './src/main/ProgressLoading'
+import RefreshControlLoading from './src/main/RefreshControlLoading';
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -53,11 +54,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <ProgressDemo/>
+                <RefreshControlDemo/>
             </View>
         );
     }
 }
+var RefreshControlDemo = React.createClass({
+    render(){
+        return(
+            <RefreshControlLoading/>
+        )
+    }
+});
 var ProgressDemo = React.createClass({
    render(){
        return(
@@ -109,7 +117,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         height: 47,
-        backgroundColor: 'grey'
+        backgroundColor: '#fa3214'
     },
     listView: {
         flex: 1,
