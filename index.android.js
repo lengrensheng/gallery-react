@@ -20,6 +20,7 @@ import ListViewLoading from './src/main/ListViewLoading'
 import ModalLoading from './src/main/ModalLoading'
 import PickerLoading from './src/main/PickerLoading'
 import NavigatorLoading from './src/main/navigator/NavigatorLoading'
+import ProgressBarLoading from './src/main/ProgressLoading'
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -52,11 +53,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <NavigatorDemo/>
+                <ProgressDemo/>
             </View>
         );
     }
 }
+var ProgressDemo = React.createClass({
+   render(){
+       return(
+           <ProgressBarLoading/>
+       )
+   }
+});
 var NavigatorDemo = React.createClass({
         render(){
             return (
