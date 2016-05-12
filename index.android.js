@@ -3,8 +3,7 @@
  * https://github.com/facebook/react-native
  */
 
-import React, { Component } from 'react';
-import {
+import React, {
     AppRegistry,
     StyleSheet,
     Text,
@@ -20,7 +19,8 @@ import DrawerLayoutLoading from './src/main/DrawerLayoutLoading'
 import ListViewLoading from './src/main/ListViewLoading'
 import ModalLoading from './src/main/ModalLoading'
 import PickerLoading from './src/main/PickerLoading'
-class demo extends Component {
+import NavigatorLoading from './src/main/navigator/NavigatorLoading'
+class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
         ToastAndroid.show("ToastTest", ToastAndroid.SHORT);
@@ -52,24 +52,45 @@ class demo extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <PickerLoading/>
+                <NavigatorDemo/>
             </View>
         );
     }
 }
-var Modal = ()=>{
-    <ModalLoading style={{flex:1}}/>
-}
-var ListView = ()=>{
-    <ListViewLoading style={styles.listView}/>
-};
-var ButtonView = ()=> {
-    <View style={{flex:1}}>
-        <Button ref="btnConfirm" text="确定" backgroundColor="red" onPress={this.fetchData}/>
-        <Button ref="btnCancel" text="取消" backgroundColor="blue" onPress={this.fetchDataOther}/>
-        <ImageLoading onPress={this.onPress}/>
-    </View>
-};
+var NavigatorDemo = React.createClass({
+        render(){
+            return (
+                <NavigatorLoading/>
+            )
+        }
+    }
+);
+var ModalDemo = React.createClass({
+    render()
+    {
+        return (
+            <ModalLoading style={{flex:1}}/>
+        )
+    }
+});
+var ListView = React.createClass({
+    render(){
+        return (
+            <ListViewLoading style={styles.listView}/>
+        )
+    }
+});
+var ButtonView = React.createClass({
+    render(){
+        return (
+            <View style={{flex:1}}>
+                <Button ref="btnConfirm" text="确定" backgroundColor="red" onPress={this.fetchData}/>
+                <Button ref="btnCancel" text="取消" backgroundColor="blue" onPress={this.fetchDataOther}/>
+                <ImageLoading onPress={this.onPress}/>
+            </View>
+        )
+    }
+});
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -80,7 +101,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         height: 47,
-        backgroundColor:'grey'
+        backgroundColor: 'grey'
     },
     listView: {
         flex: 1,
