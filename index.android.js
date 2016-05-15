@@ -26,6 +26,7 @@ import ScrollViewLoading from './src/main/ScrollViewLoading';
 import SliderLoading from './src/main/SliderLoading'
 import StatusBarLoading from './src/main/StatusBarLoading'
 import TextInputLoading from './src/main/TextInputLoading'
+import ToolbarAndroidLoading from './src/main/ToolbarAndroidLoading'
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -58,11 +59,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <TextInputDemo/>
+                <ToolbarAndroidDemo/>
             </View>
         );
     }
 }
+var ToolbarAndroidDemo = React.createClass({
+    render(){
+        return (
+            <ToolbarAndroidLoading/>
+        )
+    }
+});
 var StatusBarDemo = React.createClass({
     render(){
         return (
@@ -151,7 +159,7 @@ const styles = StyleSheet.create({
     title_bar: {
         flexDirection: 'row',
         alignItems: 'center',
-        height: 47,
+        height: 56,
         backgroundColor: '#fa3214'
     },
     listView: {
