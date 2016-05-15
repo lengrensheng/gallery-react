@@ -25,6 +25,7 @@ import RefreshControlLoading from './src/main/RefreshControlLoading';
 import ScrollViewLoading from './src/main/ScrollViewLoading';
 import SliderLoading from './src/main/SliderLoading'
 import StatusBarLoading from './src/main/StatusBarLoading'
+import TextInputLoading from './src/main/TextInputLoading'
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -56,47 +57,56 @@ class demo extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <StatusBarDemo />
-
-
+                <View style={styles.title_bar}/>
+                <TextInputDemo/>
             </View>
         );
     }
 }
 var StatusBarDemo = React.createClass({
     render(){
-        return(
-            <StatusBarLoading/>
+        return (
+            <View style={styles.container}>
+                <StatusBarLoading/>
+                <View style={styles.title_bar}/>
+            </View>
+        )
+    }
+});
+var TextInputDemo = React.createClass({
+    render(){
+        return (
+            <TextInputLoading/>
         )
     }
 });
 var SliderDemo = React.createClass({
     render(){
-        return(
+        return (
             <SliderLoading/>
         )
     }
 });
 var ScrollViewDemo = React.createClass({
-   render(){
-       return(
-           <ScrollViewLoading/>
-       )
-   }
+    render(){
+        return (
+            <ScrollViewLoading/>
+        )
+    }
 });
 var RefreshControlDemo = React.createClass({
     render(){
-        return(
+        return (
             <RefreshControlLoading/>
         )
     }
 });
 var ProgressDemo = React.createClass({
-   render(){
-       return(
-           <ProgressBarLoading/>
-       )
-   }
+    render(){
+        return (
+            <ProgressBarLoading/>
+        )
+    }
 });
 var NavigatorDemo = React.createClass({
         render(){
