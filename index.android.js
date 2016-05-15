@@ -27,6 +27,7 @@ import SliderLoading from './src/main/SliderLoading'
 import StatusBarLoading from './src/main/StatusBarLoading'
 import TextInputLoading from './src/main/TextInputLoading'
 import ToolbarAndroidLoading from './src/main/ToolbarAndroidLoading'
+import ViewPagerAndroidLoading from './src/main/ViewPagerAndroidLoading'
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -59,11 +60,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <ToolbarAndroidDemo/>
+                <ViewPagerAndroidDemo/>
             </View>
         );
     }
 }
+var ViewPagerAndroidDemo = React.createClass({
+    render(){
+        return (
+            <ViewPagerAndroidLoading/>
+        )
+    }
+});
 var ToolbarAndroidDemo = React.createClass({
     render(){
         return (
