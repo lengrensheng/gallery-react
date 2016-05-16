@@ -23,6 +23,11 @@ import NavigatorLoading from './src/main/navigator/NavigatorLoading'
 import ProgressBarLoading from './src/main/ProgressLoading'
 import RefreshControlLoading from './src/main/RefreshControlLoading';
 import ScrollViewLoading from './src/main/ScrollViewLoading';
+import SliderLoading from './src/main/SliderLoading';
+import StatusBarLoading from './src/main/StatusBarLoading';
+import TextInputLoading from './src/main/TextInputLoading';
+import ToolbarAndroidLoading from './src/main/ToolbarAndroidLoading';
+import ViewPagerAndroidLoading from './src/main/ViewPagerAndroidLoading';
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -55,31 +60,71 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <ScrollViewDemo/>
+                <ViewPagerAndroidDemo/>
             </View>
         );
     }
 }
+
+
+var ViewPagerAndroidDemo = React.createClass({
+    render(){
+        return (
+            <ViewPagerAndroidLoading/>
+        )
+    }
+});
+var ToolbarAndroidDemo = React.createClass({
+    render(){
+        return (
+            <ToolbarAndroidLoading/>
+        )
+    }
+});
+var StatusBarDemo = React.createClass({
+    render(){
+        return (
+            <View style={styles.container}>
+                <StatusBarLoading/>
+                <View style={styles.title_bar}/>
+            </View>
+        )
+    }
+});
+var TextInputDemo = React.createClass({
+    render(){
+        return (
+            <TextInputLoading/>
+        )
+    }
+});
+var SliderDemo = React.createClass({
+    render(){
+        return (
+            <SliderLoading/>
+        )
+    }
+});
 var ScrollViewDemo = React.createClass({
-   render(){
-       return(
-           <ScrollViewLoading/>
-       )
-   }
+    render(){
+        return (
+            <ScrollViewLoading/>
+        )
+    }
 });
 var RefreshControlDemo = React.createClass({
     render(){
-        return(
+        return (
             <RefreshControlLoading/>
         )
     }
 });
 var ProgressDemo = React.createClass({
-   render(){
-       return(
-           <ProgressBarLoading/>
-       )
-   }
+    render(){
+        return (
+            <ProgressBarLoading/>
+        )
+    }
 });
 var NavigatorDemo = React.createClass({
         render(){
@@ -124,7 +169,7 @@ const styles = StyleSheet.create({
     title_bar: {
         flexDirection: 'row',
         alignItems: 'center',
-        height: 47,
+        height: 56,
         backgroundColor: '#fa3214'
     },
     listView: {

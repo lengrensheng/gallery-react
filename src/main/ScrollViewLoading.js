@@ -9,24 +9,45 @@ import React,{
     StyleSheet,
     TouchableOpacity,
     ToastAndroid,
-RefreshControl,
+    RefreshControl,
 }from 'react-native'
 
 var ScrollViewDemo = React.createClass({
     getInitialState(){
-        return{
-            rowData:Array.from(new Array(10)).map(
-                (vai,i)=>({
-                    id:(i+1),
-                    text:'item number:'+i,
-                    image:{uri:'http://facebook.github.io/react/img/logo_small_2x.png'},
+        return {
+            isRefreshing: false,
+            rowData: Array.from(new Array(10)).map(
+                (vai, i)=>({
+                    id: (i + 1),
+                    text: 'item number:' + i,
+                    image: {uri: 'http://facebook.github.io/react/img/logo_small_2x.png'},
                 })
             )
         }
     },
+    _onRefresh(){
+        this.setState({isRefreshing: true});
+        var num = parseInt(this.state.rowData.length);
+        setTimeout(()=> {
+            const rows = this.state.rowData.concat(
+                Array.from(new Array(5))
+                    .map((vai, ii)=>(
+                    {
+                        id: (num+ ii + 1),
+                        text: 'refresh new number:' + parseInt(num+ii),
+                        image: {uri: 'http://facebook.github.io/react/img/logo_small_2x.png'},
+                    }
+                    ))
+            );
+            this.setState({
+                isRefreshing: false,
+                rowData: rows
+            })
+        }, 3000);
+    },
     render(){
-        const rows = this.state.rowData.map((row,ii)=>{
-           return<Row id={ii} data={row}/>
+        const rows = this.state.rowData.map((row, ii)=> {
+            return <Row id={ii} data={row}/>
         });
         return (
             <ScrollView
@@ -41,7 +62,7 @@ var ScrollViewDemo = React.createClass({
                         enable={true}
                         color={['#ff7575']}
                         progressBackgroundColor="#009999"/>}
-                >
+            >
                 {rows}
             </ScrollView>
         );
@@ -49,7 +70,7 @@ var ScrollViewDemo = React.createClass({
 });
 const Row = React.createClass({
     _onPress(){
-      ToastAndroid.show("点击按钮："+(+this.props.data.id)+"===>imageUrl:"+this.props.data.image.toJSON(),ToastAndroid.SHORT);
+        ToastAndroid.show("点击按钮：" + (+this.props.data.id) , ToastAndroid.SHORT);
     },
     render(){
         return (
@@ -63,9 +84,9 @@ const Row = React.createClass({
         )
     },
 });
-export default class ScrollViewLoading extends React.Component{
-     render(){
-        return(<ScrollViewDemo />)
+export default class ScrollViewLoading extends React.Component {
+    render() {
+        return (<ScrollViewDemo />)
     }
 }
 var styles = StyleSheet.create({
