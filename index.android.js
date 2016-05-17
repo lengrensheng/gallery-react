@@ -3,7 +3,8 @@
  * https://github.com/facebook/react-native
  */
 
-import React, {
+import React from 'react';
+import {
     AppRegistry,
     StyleSheet,
     Text,
@@ -28,6 +29,7 @@ import StatusBarLoading from './src/main/StatusBarLoading';
 import TextInputLoading from './src/main/TextInputLoading';
 import ToolbarAndroidLoading from './src/main/ToolbarAndroidLoading';
 import ViewPagerAndroidLoading from './src/main/ViewPagerAndroidLoading';
+import AnimatedLoading from './src/main/AnimatedLoading';
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -60,12 +62,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <ViewPagerAndroidDemo/>
+                <AnimatedDemo/>
             </View>
         );
     }
 }
-
+var AnimatedDemo = React.createClass({
+  render(){
+      return(
+      <AnimatedLoading/>
+      );
+  }
+});
 
 var ViewPagerAndroidDemo = React.createClass({
     render(){
