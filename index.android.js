@@ -30,6 +30,7 @@ import TextInputLoading from './src/main/TextInputLoading';
 import ToolbarAndroidLoading from './src/main/ToolbarAndroidLoading';
 import ViewPagerAndroidLoading from './src/main/ViewPagerAndroidLoading';
 import AnimatedLoading from './src/main/AnimatedLoading';
+import AsyncStorageLoading from './src/main/AsyncStorageLoading';
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -62,11 +63,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <AnimatedDemo/>
+                <AsyncStorageDemo/>
             </View>
         );
     }
 }
+var AsyncStorageDemo = React.createClass({
+    render(){
+        return(
+            <AsyncStorageLoading/>
+        );
+    }
+});
 var AnimatedDemo = React.createClass({
   render(){
       return(
