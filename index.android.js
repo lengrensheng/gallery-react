@@ -63,7 +63,7 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <AsyncStorageDemo/>
+                <NavigatorDemo/>
             </View>
         );
     }

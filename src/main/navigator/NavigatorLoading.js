@@ -6,16 +6,37 @@ import React,{
     StyleSheet,
     Text,
     View,
-    Navigator
+    Navigator,
+    BackAndroid,
+    Platform
 }from 'react-native';
 import FirstPageComponent from './FirstPageComponent';
 export default class NavigatorLoading extends Component{
+    componentDidMount() {
+      if(Platform.OS==='android'){
+          BackAndroid.addEventListener('hardwareBackPress',this.onBackPressed);
+      }
+    }
+    componentWillUnMount() {
+     if(Platform.OS==='android'){
+         BackAndroid.removeEventListener('hardwareBackPress',this.onBackPressed);
+     }
+    }
+    onBackPressed=()=>{
+        const nav = this.navigator;
+        const route = nav.getCurrentRoutes();
+        if(route.length>1){
+            nav.pop();
+            return true;
+        }
+        return false;
+    }
     render(){
         let defaultName= 'FirstPageComponent';
         let defaultComponent = FirstPageComponent;
         return(
             <Navigator
-
+                ref={nav=>{this.navigator=nav;}}
                 initialRoute={{name:defaultName,component:defaultComponent}}
                 configureScene={(router)=>{
                     return Navigator.SceneConfigs.FloatFromRight;
