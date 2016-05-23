@@ -32,6 +32,7 @@ import ViewPagerAndroidLoading from './src/main/ViewPagerAndroidLoading';
 import AnimatedLoading from './src/main/AnimatedLoading';
 import AsyncStorageLoading from './src/main/AsyncStorageLoading';
 import LinkLoading from './src/main/LinkLoading'
+import NetInfoLoading from './src/main/NetInfoLoading'
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -64,12 +65,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <LinkingDemo/>
+                <NetInfoDemo/>
             </View>
         );
     }
 }
-
+var NetInfoDemo = React.createClass({
+    render(){
+        return(
+            <NetInfoLoading/>
+        );
+    }
+});
 var LinkingDemo = React.createClass({
     render(){
         return(
