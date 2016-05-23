@@ -34,6 +34,7 @@ import AsyncStorageLoading from './src/main/AsyncStorageLoading';
 import LinkLoading from './src/main/LinkLoading';
 import NetInfoLoading from './src/main/NetInfoLoading';
 import TimePickerAndroidLoading from './src/main/TimePickerLoading';
+import VibrationLoading from './src/main/VibrationLoading';
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -66,11 +67,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <TimePickerAndroidDemo/>
+                <VibrationDemo/>
             </View>
         );
     }
 }
+var VibrationDemo = React.createClass({
+    render(){
+        return(
+            <VibrationLoading/>
+        );
+    }
+});
 var TimePickerAndroidDemo = React.createClass({
     render(){
         return(
