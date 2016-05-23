@@ -15,13 +15,13 @@ import {
 } from 'react-native';
 const AndroidOS = "android";
 import Button from './src/component/Button';
-import ImageLoading from  './src/main/ImageLoading'
-import DrawerLayoutLoading from './src/main/DrawerLayoutLoading'
-import ListViewLoading from './src/main/ListViewLoading'
-import ModalLoading from './src/main/ModalLoading'
-import PickerLoading from './src/main/PickerLoading'
-import NavigatorLoading from './src/main/navigator/NavigatorLoading'
-import ProgressBarLoading from './src/main/ProgressLoading'
+import ImageLoading from  './src/main/ImageLoading';
+import DrawerLayoutLoading from './src/main/DrawerLayoutLoading';
+import ListViewLoading from './src/main/ListViewLoading';
+import ModalLoading from './src/main/ModalLoading';
+import PickerLoading from './src/main/PickerLoading';
+import NavigatorLoading from './src/main/navigator/NavigatorLoading';
+import ProgressBarLoading from './src/main/ProgressLoading';
 import RefreshControlLoading from './src/main/RefreshControlLoading';
 import ScrollViewLoading from './src/main/ScrollViewLoading';
 import SliderLoading from './src/main/SliderLoading';
@@ -31,8 +31,9 @@ import ToolbarAndroidLoading from './src/main/ToolbarAndroidLoading';
 import ViewPagerAndroidLoading from './src/main/ViewPagerAndroidLoading';
 import AnimatedLoading from './src/main/AnimatedLoading';
 import AsyncStorageLoading from './src/main/AsyncStorageLoading';
-import LinkLoading from './src/main/LinkLoading'
-import NetInfoLoading from './src/main/NetInfoLoading'
+import LinkLoading from './src/main/LinkLoading';
+import NetInfoLoading from './src/main/NetInfoLoading';
+import TimePickerAndroidLoading from './src/main/TimePickerLoading';
 class demo extends React.Component {
     fetchData = ()=> {
         //禁用按钮
@@ -65,11 +66,18 @@ class demo extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.title_bar}/>
-                <NetInfoDemo/>
+                <TimePickerAndroidDemo/>
             </View>
         );
     }
 }
+var TimePickerAndroidDemo = React.createClass({
+    render(){
+        return(
+            <TimePickerAndroidLoading/>
+        );
+    }
+});
 var NetInfoDemo = React.createClass({
     render(){
         return(
